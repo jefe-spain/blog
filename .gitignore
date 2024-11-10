@@ -1,0 +1,8 @@
+node_modules
+.next
+.env
+*.env
+# pnpm
+pnpm-lock.yaml
+.pnpm-store/
+.DS_Store
