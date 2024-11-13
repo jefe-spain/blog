@@ -1,11 +1,14 @@
+// Import Zustand for state management and icons for navigation
 import { create } from 'zustand'
-
 interface AppState {
-  openMenu: boolean
-  setOpenMenu: (openMenu: boolean) => void
+  isMenuOpen: boolean 
+  setMenu: (open: boolean) => void 
 }
 
+// Create the store with initial state and actions
 export const useAppStore = create<AppState>((set) => ({
-  openMenu: true,
-  setOpenMenu: (openMenu) => set({ openMenu }),
+  isMenuOpen: true,
+  setMenu: (open: boolean) => set({ isMenuOpen: open }),
 }))
+
+

@@ -3,20 +3,8 @@
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { MainNav } from "./main-nav";
-import { motion, useCycle } from "framer-motion";
 import HamburgerMenu from "./hamburger-menu";
-
-
-const navigation = [
-  {
-    title: "Blog",
-    href: "/",
-  },
-  {
-    title: "About",
-    href: "/about",
-  },
-];
+import { NAV_ITEMS } from "@/app/menuRoutes";
 
 export default function Header() {
   return (
@@ -27,7 +15,7 @@ export default function Header() {
             <HamburgerMenu/>
           </div>
         </div>
-        <MainNav items={navigation} />
+        <MainNav />
         <div className="flex space-x-4 mr-4">
           {/* Search form */}
           <form className="w-full">
@@ -63,12 +51,17 @@ export default function Header() {
           <ThemeToggle />
 
           {/* Button */}
-          <Link
-            className="btn-sm text-slate-100 bg-sky-500 hover:bg-sky-600"
-            href="/subscribe"
-          >
-            Subscribe
-          </Link>
+          {(() => {
+            const subscribeItem = NAV_ITEMS.find(item => item.name === 'Subscribe')
+            return (
+              <Link
+                className="btn-sm text-slate-100 bg-sky-500 hover:bg-sky-600"
+                href={subscribeItem?.path || '/404'}
+              >
+                {subscribeItem?.name}
+              </Link>
+            )
+          })()}
         </div>
       </div>
     </header>

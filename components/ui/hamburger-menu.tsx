@@ -20,13 +20,13 @@ interface HamburgerMenuProps {
 
 export default function HamburgerMenu() {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const { setOpenMenu } = useAppStore();
+  const { setMenu } = useAppStore();
 
   return (
     <motion.nav initial={false} animate={isOpen ? "open" : "closed"}>
       <button className="" onClick={() => {
           toggleOpen();
-          setOpenMenu(isOpen);
+          setMenu(isOpen);
         }}
       >
         <svg width="24" height="24" viewBox="0 0 24 24">

@@ -1,13 +1,11 @@
+'use client'
+
 import Image from 'next/image'
 import WidgetNewsletter from '@/components/widget-newsletter'
 import WidgetSponsor from '@/components/widget-sponsor'
-import AboutImg from '@/public/images/about.png'
+import AboutImg from '@/public/images/about.jpg'
 import Experience from '@/components/experience'
-
-export const metadata = {
-  title: 'About - DevSpace',
-  description: 'Page description',
-}
+import { motion } from 'framer-motion'
 
 export default function About() {
   return (
@@ -19,8 +17,12 @@ export default function About() {
 
           <section>
             { /* Page title */}
-            <h1 className="h1 font-aspekta mb-5">Hi. I'm Mark <span className="inline-flex relative text-sky-500 before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:-rotate-2 before:translate-y-1/4">@mrk27</span> Ivings 🤟</h1>
-            <Image className="w-full" src={AboutImg} width={692} height={390} alt="About" />
+            <h1 className="h1 font-aspekta text-3xl text-center mx-auto mb-5">
+              Hi I'm Jesus, <a href="https://x.com/jefe_spain" target="_blank" rel="noopener noreferrer"><motion.span whileHover={{ rotate: [-4, 4], transition: { duration: 0.3, repeat: Infinity, repeatType: "reverse" } }} className="inline-flex relative text-sky-500 before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10">@jefe_spain</motion.span></a> for friends 🤘👨‍💻
+            </h1>
+            <div className="overflow-hidden w-[250px] mx-auto mb-4 ">
+              <Image className="w-full rounded-3xl mx-auto" src={AboutImg} width={361} height={160} alt="About" />
+            </div>
             { /* Page content */}
             <div className="text-slate-500 dark:text-slate-400 space-y-8">
               <div className="space-y-4">
