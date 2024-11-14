@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import HeroImage from "@/public/images/me.png";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from "react";
 
 export default function Hero() {

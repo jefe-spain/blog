@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import HeroImage from '@/public/images/me.png'
 import { useAppStore } from '@/store/store';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { NAV_ITEMS } from '@/app/menuRoutes';
 
 export default function SideNavigation() {
@@ -17,7 +17,7 @@ export default function SideNavigation() {
   return (
     <div>
     <motion.div
-      className={`md:hidden openMenu ? 'w-0' : 'w-[64px]'} sticky shrink-0 h-screen overflow-y-auto no-scrollbar border-r border-slate-200 dark:border-slate-800`}
+      className={`md:hidden sticky shrink-0 h-screen overflow-y-auto no-scrollbar border-r border-slate-200 dark:border-slate-800`}
       animate={{ width: isMenuOpen ? 0 : 64 }}
       transition={{ duration: isMenuOpen ? 0.1 : 0.3, ease: isMenuOpen ? "easeIn" : "easeOut" }}
       initial={false}

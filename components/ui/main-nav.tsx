@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NavItem } from "@/types";
-import { useMotionValueEvent, useScroll, motion } from "framer-motion";
+import { useMotionValueEvent, useScroll, motion } from "motion/react";
 import { NAV_ITEMS } from "@/app/menuRoutes";
 
 

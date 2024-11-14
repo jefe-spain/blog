@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useCycle } from "framer-motion";
+import { motion, useCycle } from "motion/react";
 import { useAppStore } from "@/store/store";
 
 const Path = (props: any) => (

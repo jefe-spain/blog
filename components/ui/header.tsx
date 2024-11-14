@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { MainNav } from "./main-nav";
@@ -7,9 +8,20 @@ import HamburgerMenu from "./hamburger-menu";
 import { NAV_ITEMS } from "@/app/menuRoutes";
 
 export default function Header() {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header>
-      <div className="flex items-center justify-between ">
+    <header className={`${isSticky ? "fixed top-0 left-0 right-0 shadow-sm dark:shadow-slate-800 z-50" : ""}`}>
+      <div className="flex items-center justify-between bg-white dark:bg-slate-900">
         <div className="flex items-center">
           <div className="md:hidden mt-2 ml-6 w-[64px]">
             <HamburgerMenu/>

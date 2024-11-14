@@ -2,14 +2,23 @@ import Link from 'next/link'
 import Image from 'next/image'
 import PostDate from '@/components/post-date'
 
+function getReadingTime(content: string): number {
+  const wordsPerMinute = 225; // Average adult reading speed
+  const words = content.trim().split(/\s+/).length;
+  const minutes = words / wordsPerMinute;
+  
+  // Round up to nearest minute, with a minimum of 1
+  return Math.max(1, Math.ceil(minutes));
+}
+
 export default function PostItem({ ...props }) {
   return (
     <article className="py-5 border-b border-slate-100 dark:border-slate-800">
       <div className="flex items-start">
         <Image className="rounded w-16 h-16 sm:w-[88px] sm:h-[88px] object-cover mr-6" src={props.metadata.image} width={88} height={88} alt={props.metadata.title} />
         <div>
-          <div className="text-xs text-slate-500 uppercase mb-1">
-            <span className="text-sky-500">—</span> <PostDate dateString={props.metadata.publishedAt} />
+          <div className="text-xs text-slate-500 mb-1">
+            <span className="text-sky-500 uppercase">—</span> <PostDate dateString={props.metadata.publishedAt} /> <span className="text-slate-400 dark:text-slate-600">~</span> <i>{getReadingTime(props.content)} min read</i>
           </div>
           <h3 className="font-aspekta text-lg font-[650] mb-1">
             <Link
